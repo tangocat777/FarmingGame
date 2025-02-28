@@ -31,6 +31,14 @@ namespace Project1.Helpers
             {
                 public PlantTypes plantType;
                 public GrowthStage growthStage;
+                public int daysWatered;
+
+                public PlantDetails(PlantTypes plantType, GrowthStage growthStage = GrowthStage.Stage1, int daysWatered = 0)
+                {
+                    this.plantType = plantType;
+                    this.growthStage = growthStage;
+                    this.daysWatered = daysWatered;
+                }
             }
 
             public static readonly Dictionary<PlantTypes, Vector2I> AtlasCoordsForSeed = new()

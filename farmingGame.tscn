@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://bxu8wxy3gxinh"]
+[gd_scene load_steps=13 format=4 uid="uid://bxu8wxy3gxinh"]
 
 [ext_resource type="Texture2D" uid="uid://x1605af8gpoj" path="res://Assets/Borrowed/Sprites/Tilemap/tilemap.png" id="1_5fk3s"]
-[ext_resource type="Script" path="res://Player.cs" id="2_d23wr"]
+[ext_resource type="Script" path="res://src/app/game/FarmingGame.cs" id="1_viogr"]
 [ext_resource type="Texture2D" uid="uid://0pklbvbx1x0a" path="res://icon.svg" id="2_xk3de"]
-[ext_resource type="Script" path="res://ActionLocation.cs" id="4_k8ags"]
+[ext_resource type="Script" path="res://src/app/TileMapLayers/SoilLayer.cs" id="3_hi0hg"]
+[ext_resource type="Script" path="res://src/app/player/Player.cs" id="3_hoo52"]
+[ext_resource type="Script" path="res://src/app/player/PlayerActionLocation.cs" id="6_2h78q"]
+[ext_resource type="Script" path="res://src/app/TileMapLayers/PlantLayer.cs" id="7_na4na"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhfpl"]
 texture = ExtResource("1_5fk3s")
@@ -233,17 +236,19 @@ sources/0 = SubResource("TileSetAtlasSource_ht2fv")
 
 [node name="Game" type="Node2D"]
 position = Vector2(0, 141)
+script = ExtResource("1_viogr")
 
 [node name="Soil Layer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
 tile_map_data = PackedByteArray("AAAAAP//AAACAAIAAAAAAAAAAAACAAIAAAABAP//AAACAAIAAAABAAEAAAACAAIAAAABAAAAAAACAAIAAAAAAAEAAAACAAIAAAACAP//AAACAAIAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAEAP//AAACAAIAAAAEAAAAAAACAAIAAAAEAAEAAAACAAIAAAAFAP//AAACAAIAAAAFAAAAAAACAAIAAAAFAAEAAAACAAIAAAAGAP//AAACAAIAAAAGAAAAAAACAAIAAAAGAAEAAAACAAIAAAADAAAAAAACAAIAAAADAAEAAAACAAIAAAADAP//AAACAAIAAAA=")
 tile_set = SubResource("TileSet_j15lb")
 collision_enabled = false
+script = ExtResource("3_hi0hg")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(76, -63)
 motion_mode = 1
-script = ExtResource("2_d23wr")
+script = ExtResource("3_hoo52")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(1, -11)
@@ -253,14 +258,13 @@ shape = SubResource("RectangleShape2D_xm34a")
 position = Vector2(3, -11)
 texture = ExtResource("2_xk3de")
 
-[node name="Action Location" type="Marker2D" parent="Player" node_paths=PackedStringArray("plant", "soil")]
+[node name="Action Location" type="Marker2D" parent="Player"]
 position = Vector2(144, -3)
-script = ExtResource("4_k8ags")
-plant = NodePath("../../Plant Layer")
-soil = NodePath("../../Soil Layer")
+script = ExtResource("6_2h78q")
 
 [node name="Plant Layer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 8)
 tile_map_data = PackedByteArray("AABBAP3/AAAKAAMAAABBAP7/AAAKAAQAAABBAP//AAAKAAUAAAACAAAAAAAKAAUAAAA=")
 tile_set = SubResource("TileSet_71qrk")
 collision_enabled = false
+script = ExtResource("7_na4na")

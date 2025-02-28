@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1.Helpers
+namespace Project1.src.app.Helpers
 {
     public static class SoilConfig
     {

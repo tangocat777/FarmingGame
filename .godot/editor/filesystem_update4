@@ -1,5 +1,6 @@
-res://sprite_2d.tscn
-res://farmingGame.tscn
-res://ActionLocation.cs
 res://Sprite2d.cs
-res://Player.cs
+res://src/app/TileMapLayers/SoilLayer.cs
+res://src/app/player/Player.cs
+res://src/app/player/PlayerActionLocation.cs
+res://src/app/game/FarmingGame.cs
+res://src/app/TileMapLayers/PlantLayer.cs
