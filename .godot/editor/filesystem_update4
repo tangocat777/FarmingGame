@@ -4,3 +4,5 @@ res://src/app/player/Player.cs
 res://src/app/player/PlayerActionLocation.cs
 res://src/app/game/FarmingGame.cs
 res://src/app/TileMapLayers/PlantLayer.cs
+res://sprite_2d.tscn
+res://farmingGame.tscn
