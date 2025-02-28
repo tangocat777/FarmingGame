@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bxu8wxy3gxinh"]
+[gd_scene load_steps=14 format=4 uid="uid://bxu8wxy3gxinh"]
 
 [ext_resource type="Texture2D" uid="uid://x1605af8gpoj" path="res://Assets/Borrowed/Sprites/Tilemap/tilemap.png" id="1_5fk3s"]
 [ext_resource type="Script" path="res://src/app/game/FarmingGame.cs" id="1_viogr"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://src/app/TileMapLayers/SoilLayer.cs" id="3_hi0hg"]
 [ext_resource type="Script" path="res://src/app/player/Player.cs" id="3_hoo52"]
 [ext_resource type="Script" path="res://src/app/player/PlayerActionLocation.cs" id="6_2h78q"]
+[ext_resource type="Script" path="res://src/app/player/Sprite2d.cs" id="6_05y8i"]
 [ext_resource type="Script" path="res://src/app/TileMapLayers/PlantLayer.cs" id="7_na4na"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhfpl"]
@@ -257,6 +258,7 @@ shape = SubResource("RectangleShape2D_xm34a")
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 position = Vector2(3, -11)
 texture = ExtResource("2_xk3de")
+script = ExtResource("6_05y8i")
 
 [node name="Action Location" type="Marker2D" parent="Player"]
 position = Vector2(144, -3)
