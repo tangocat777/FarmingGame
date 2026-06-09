@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3yxa2vs2hap"]
+
+[ext_resource type="Script" path="res://src/app/prefabs/PrefabPlant.cs" id="1_msp52"]
+[ext_resource type="Texture2D" uid="uid://djeog2vboy63a" path="res://Assets/Borrowed/Sprites/Tiles/tile_0104.png" id="2_tq3sj"]
+
+[node name="prefabPlant" type="Node2D"]
+visibility_layer = 2
+script = ExtResource("1_msp52")
+
+[node name="PlantSprite" type="Sprite2D" parent="."]
+scale = Vector2(14, 14)
+texture = ExtResource("2_tq3sj")

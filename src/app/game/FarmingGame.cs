@@ -27,7 +27,7 @@ public partial class FarmingGame : Node2D, IFarmingGame
         Player = GetNode<IPlayer>(new NodePath("./Player"));
         var plantLayer = GetNode<ITileMapLayer>(new NodePath("./Plant Layer"));
         var soilLayer = GetNode<ITileMapLayer>(new NodePath("./Soil Layer"));
-        PlantController = new PlantController(plantLayer, soilLayer);
+        PlantController = new PlantController(plantLayer, soilLayer, this, Player);
         this.Provide();
     }
 

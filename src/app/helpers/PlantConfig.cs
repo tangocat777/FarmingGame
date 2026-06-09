@@ -11,6 +11,7 @@ namespace Project1.Helpers
     {
         public static class PlantConfig
         {
+            private static string plantTilePath = "res://Assets//Borrowed//Sprites//Tiles";
             public enum PlantTypes
             {
                 Carrot,
@@ -51,6 +52,18 @@ namespace Project1.Helpers
             { new  Vector2I(2, 2), new PlantDetails{ plantType =PlantTypes.Wheat, growthStage = GrowthStage.Stage1 } },
             { new Vector2I(-1, -1), new PlantDetails{ plantType =PlantTypes.DoesNotExist, growthStage = GrowthStage.Stage1 } }
         };
+            public static Texture2D LookupPlantTexture(PlantTypes type, int successfulWaters)
+            {
+
+                switch (type)
+                {
+                    case PlantTypes.Tomato:
+                    default:
+                        return ResourceLoader.Load<Texture2D>("res://src/app/prefabs/PlantResources/tomato_seed.tres");
+                        break;
+                }
+                return new Texture2D();
+            }
         }
     }
 

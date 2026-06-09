@@ -236,7 +236,6 @@ tile_size = Vector2i(18, 18)
 sources/0 = SubResource("TileSetAtlasSource_ht2fv")
 
 [node name="Game" type="Node2D"]
-position = Vector2(0, 141)
 script = ExtResource("1_viogr")
 
 [node name="Soil Layer" type="TileMapLayer" parent="."]
@@ -247,6 +246,7 @@ collision_enabled = false
 script = ExtResource("3_hi0hg")
 
 [node name="Player" type="CharacterBody2D" parent="."]
+z_index = 1
 position = Vector2(76, -63)
 motion_mode = 1
 script = ExtResource("3_hoo52")
@@ -265,7 +265,7 @@ position = Vector2(144, -3)
 script = ExtResource("6_2h78q")
 
 [node name="Plant Layer" type="TileMapLayer" parent="."]
-scale = Vector2(8, 8)
+scale = Vector2(8, 7.94118)
 tile_map_data = PackedByteArray("AABBAP3/AAAKAAMAAABBAP7/AAAKAAQAAABBAP//AAAKAAUAAAACAAAAAAAKAAUAAAA=")
 tile_set = SubResource("TileSet_71qrk")
 collision_enabled = false
