@@ -17,11 +17,6 @@ public partial class PrefabPlant : Node2D
 
     public PrefabPlant()
     {
-		//TODO: implement function to set child sprite
-		/*childSprite = this.GetChild<Sprite2D>(0);
-		childSprite.Texture = new Texture2D();
-		childSprite.Texture  = PlantConfig.LookupPlantTexture(type, successfulWaters);*/
-        this.Visible = true;
     }
 
     // Called when the node enters the scene tree for the first time.
@@ -34,7 +29,22 @@ public partial class PrefabPlant : Node2D
 		this.player = player;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public void ProvideInitData(IPlayer player, int successfulWaters = 0, PlantTypes type = PlantTypes.Tomato)
+	{
+		setPlayer(player);
+		this.successfulWaters = successfulWaters;
+		this.type = type;
+		init();
+	}
+
+	private void init()
+	{
+        childSprite = this.GetChild<Sprite2D>(0);
+        childSprite.Texture = new Texture2D();
+        childSprite.Texture = PlantConfig.LookupPlantTexture(type, successfulWaters);
+        this.Visible = true;
+    }
+
 	public override void _Process(double delta)
 	{
 		var playerYOffset = player.GlobalPosition.Y + offsetPixels;

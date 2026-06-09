@@ -70,11 +70,9 @@ namespace Project1.src.app.LogicControllers
 			{
                 PlantDetails newPlant = new PlantDetails(plantType);
                 AtlasCoordsForSeed.TryGetValue(PlantTypes.Tomato, out Vector2I atlasToPlant);
-                // TODO: old way of adding plants, remove once adding objects directly to scene works.
-                //plantLayer.SetCell(realPlant, 0, atlasToPlant);
                 plantsInMap.Add((controllerCoords.X, controllerCoords.Y), newPlant);
                 var instancedScene = prefabPlantScene.Instantiate<PrefabPlant>();
-                instancedScene.setPlayer(player);
+                instancedScene.ProvideInitData(player, 0, PlantTypes.Tomato);
                 instancedScene.GlobalPosition = GetGlobalCoordsFromSoilLocation(realSoil);
                 game.AddChild(instancedScene);
                 return true;
