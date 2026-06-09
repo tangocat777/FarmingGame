@@ -264,6 +264,16 @@ script = ExtResource("6_05y8i")
 position = Vector2(144, -3)
 script = ExtResource("6_2h78q")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(2, -7)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
+
 [node name="Plant Layer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 7.94118)
 tile_map_data = PackedByteArray("AABBAP3/AAAKAAMAAABBAP7/AAAKAAQAAABBAP//AAAKAAUAAAACAAAAAAAKAAUAAAA=")
