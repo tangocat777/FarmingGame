@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bxu8wxy3gxinh"]
+[gd_scene load_steps=15 format=4 uid="uid://bxu8wxy3gxinh"]
 
 [ext_resource type="Texture2D" uid="uid://x1605af8gpoj" path="res://Assets/Borrowed/Sprites/Tilemap/tilemap.png" id="1_5fk3s"]
 [ext_resource type="Script" path="res://src/app/game/FarmingGame.cs" id="1_viogr"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://src/app/player/PlayerActionLocation.cs" id="6_2h78q"]
 [ext_resource type="Script" path="res://src/app/player/Sprite2d.cs" id="6_05y8i"]
 [ext_resource type="Script" path="res://src/app/TileMapLayers/PlantLayer.cs" id="7_na4na"]
+[ext_resource type="PackedScene" uid="uid://88tym3butwco" path="res://HUDScene.tscn" id="8_0u6ux"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xhfpl"]
 texture = ExtResource("1_5fk3s")
@@ -274,9 +275,11 @@ drag_top_margin = 0.3
 drag_right_margin = 0.3
 drag_bottom_margin = 0.3
 
+[node name="CanvasLayer" parent="Player" instance=ExtResource("8_0u6ux")]
+
 [node name="Plant Layer" type="TileMapLayer" parent="."]
 scale = Vector2(8, 7.94118)
-tile_map_data = PackedByteArray("AABBAP3/AAAKAAMAAABBAP7/AAAKAAQAAABBAP//AAAKAAUAAAACAAAAAAAKAAUAAAA=")
+tile_map_data = PackedByteArray("AABBAP3/AAAKAAMAAABBAP7/AAAKAAQAAABBAP//AAAKAAUAAAA=")
 tile_set = SubResource("TileSet_71qrk")
 collision_enabled = false
 script = ExtResource("7_na4na")

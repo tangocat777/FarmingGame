@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://88tym3butwco"]
+
+[ext_resource type="Script" path="res://src/app/Hud/HudScene.cs" id="1_8ep1v"]
+
+[sub_resource type="Gradient" id="Gradient_61377"]
+offsets = PackedFloat32Array(0, 0.00649351)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_006k0"]
+gradient = SubResource("Gradient_61377")
+width = 100
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_8ep1v")
+
+[node name="ToolPanel1" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+offset_left = 23.0
+offset_top = 512.0
+offset_right = 123.0
+offset_bottom = 612.0
+texture = SubResource("GradientTexture1D_006k0")
+
+[node name="ToolPanel2" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+offset_left = 139.0
+offset_top = 515.0
+offset_right = 239.0
+offset_bottom = 615.0
+texture = SubResource("GradientTexture1D_006k0")
+
+[node name="ToolPanel3" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+offset_left = 292.0
+offset_top = 510.0
+offset_right = 392.0
+offset_bottom = 610.0
+texture = SubResource("GradientTexture1D_006k0")
+
+[node name="ToolPanel4" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+offset_left = 429.0
+offset_top = 503.0
+offset_right = 529.0
+offset_bottom = 603.0
+texture = SubResource("GradientTexture1D_006k0")

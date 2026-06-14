@@ -14,6 +14,7 @@ namespace Project1.src.app.player
     {
         //Note to self: have to apply this to every node that you want to use ChickenSoft's autoinject logic on
         public override void _Notification(int what) => this.Notify(what);
+        private const float PLAYER_SPEED = 5;
 
         public override void _PhysicsProcess(double delta)
         {
@@ -23,24 +24,23 @@ namespace Project1.src.app.player
 
         public override void _Process(double delta)
         {
-            float speed = 5;
             if (Input.IsKeyPressed(Key.W))
             {
-                this.Position += new Vector2(0, -speed);
+                this.Position += new Vector2(0, -PLAYER_SPEED);
             }
             if (Input.IsKeyPressed(Key.A))
             {
-                this.Position += new Vector2(-speed, 0);
+                this.Position += new Vector2(-PLAYER_SPEED, 0);
             }
 
             if (Input.IsKeyPressed(Key.S))
             {
-                this.Position += new Vector2(0, speed);
+                this.Position += new Vector2(0, PLAYER_SPEED);
             }
 
             if (Input.IsKeyPressed(Key.D))
             {
-                this.Position += new Vector2(speed, 0);
+                this.Position += new Vector2(PLAYER_SPEED, 0);
             }
         }
     }
