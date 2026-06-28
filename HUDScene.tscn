@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://88tym3butwco"]
+[gd_scene load_steps=7 format=3 uid="uid://88tym3butwco"]
 
 [ext_resource type="Script" path="res://src/app/Hud/HudScene.cs" id="1_8ep1v"]
+[ext_resource type="Script" path="res://InventoryLayer.cs" id="2_jebq3"]
 
 [sub_resource type="Gradient" id="Gradient_61377"]
 offsets = PackedFloat32Array(0, 0.00649351)
@@ -9,7 +10,14 @@ offsets = PackedFloat32Array(0, 0.00649351)
 gradient = SubResource("Gradient_61377")
 width = 100
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[sub_resource type="Gradient" id="Gradient_pdp0t"]
+offsets = PackedFloat32Array(0, 0.012987)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ycj4n"]
+gradient = SubResource("Gradient_pdp0t")
+width = 50
+
+[node name="HUDLayer" type="CanvasLayer"]
 script = ExtResource("1_8ep1v")
 
 [node name="ToolPanel1" type="TextureRect" parent="."]
@@ -43,3 +51,14 @@ offset_top = 503.0
 offset_right = 529.0
 offset_bottom = 603.0
 texture = SubResource("GradientTexture1D_006k0")
+
+[node name="InventoryLayer" type="CanvasLayer" parent="."]
+script = ExtResource("2_jebq3")
+
+[node name="DuplicateRect" type="TextureRect" parent="InventoryLayer"]
+visible = false
+modulate = Color(1, 1, 1, 0.443137)
+offset_left = 25.0
+offset_right = 112.0
+offset_bottom = 86.0
+texture = SubResource("GradientTexture1D_ycj4n")

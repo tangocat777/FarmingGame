@@ -1,1 +1,3 @@
+Resource
 ImageTexture
+CompressedTexture2D

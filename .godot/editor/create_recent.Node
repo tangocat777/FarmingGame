@@ -1,7 +1,7 @@
 TextureRect
+CanvasLayer
 Panel
 Control
-CanvasLayer
 Camera2D
 Sprite2D
 Marker2D

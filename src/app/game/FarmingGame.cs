@@ -2,11 +2,13 @@ using Chickensoft.AutoInject;
 using Chickensoft.GodotNodeInterfaces;
 using Chickensoft.Introspection;
 using Godot;
+using Project1.src.app.Constants;
+using Project1.src.app.logicControllers;
 using Project1.src.app.LogicControllers;
 using Project1.src.app.player;
 
 //This node will act as the main entry point and central logic controller for the game's components
-public interface IFarmingGame : INode2D, IProvide<IPlantController>
+public interface IFarmingGame : INode2D, IProvide<IPlantController>, IProvide<IUIController>
 {
 
 }
@@ -21,6 +23,10 @@ public partial class FarmingGame : Node2D, IFarmingGame
 
     IPlantController IProvide<IPlantController>.Value() => PlantController;
 
+    public IUIController UIController { get; set; } = default;
+
+    IUIController IProvide<IUIController>.Value() => UIController;
+
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -28,6 +34,7 @@ public partial class FarmingGame : Node2D, IFarmingGame
         var plantLayer = GetNode<ITileMapLayer>(new NodePath("./Plant Layer"));
         var soilLayer = GetNode<ITileMapLayer>(new NodePath("./Soil Layer"));
         PlantController = new PlantController(plantLayer, soilLayer, this, Player);
+        UIController = new UIController(Player.GetHud().GetInventoryLayer());
         this.Provide();
     }
 
@@ -38,7 +45,10 @@ public partial class FarmingGame : Node2D, IFarmingGame
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
-	{   
-
+	{
+        if (Input.IsActionJustPressed(ActionConstants.INVENTORY_ACTION))
+        {
+            UIController.ProcessInventoryOpenAction();
+        }
     }
 }

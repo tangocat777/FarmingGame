@@ -8,6 +8,8 @@ namespace Project1.src.app.player
     public interface IPlayer
     {
         public Vector2 GlobalPosition { get; }
+        public IHudScene GetHud();
+
     }
     [Meta(typeof(IAutoNode))]
     public partial class Player : CharacterBody2D, IPlayer
@@ -15,6 +17,16 @@ namespace Project1.src.app.player
         //Note to self: have to apply this to every node that you want to use ChickenSoft's autoinject logic on
         public override void _Notification(int what) => this.Notify(what);
         private const float PLAYER_SPEED = 5;
+        private IHudScene hudScene { get; set; } = default;
+
+        public override void _Ready()
+        {
+            hudScene = GetNode<IHudScene>(new NodePath("./CanvasLayer"));
+        }
+
+        public IHudScene GetHud() {
+            return hudScene;
+        }
 
         public override void _PhysicsProcess(double delta)
         {
